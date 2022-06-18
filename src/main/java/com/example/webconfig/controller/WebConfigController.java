@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @Slf4j
 public class WebConfigController {
@@ -19,8 +22,24 @@ public class WebConfigController {
 
   @GetMapping
   public String getHello() {
-    log.info("serverProperties:{}", serverProperties);
-    log.info("labelProperties:{}", labelProperties);
     return "Hello World";
   }
+
+  @GetMapping("config")
+  public Map<String, List<String>> getConfig() {
+    log.info("info:{}", serverProperties.getConfig());
+    return this.serverProperties.getConfig();
+  }
+
+  @GetMapping("users")
+  public Map<String, ServerProperties.Credential> getUsers(){
+    log.info("info:{}", serverProperties.getUsers());
+    return this.serverProperties.getUsers();
+  }
+
+  @GetMapping("label")
+  public Object getLabel() {
+    return this.labelProperties.getAliases();
+  }
+
 }
