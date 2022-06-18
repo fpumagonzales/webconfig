@@ -1,0 +1,5 @@
+label:
+  name: Kubernates
+  aliases:
+    - k8s
+    - kube
