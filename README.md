@@ -24,3 +24,17 @@ http://localhost:7011/config
     ]
 }
 ```
+
+http://localhost:7011/users
+```json
+{
+    "root": {
+        "username": "root",
+        "password": "rootpass"
+    },
+    "guest": {
+        "username": "guest",
+        "password": "guestpass"
+    }
+}
+```
